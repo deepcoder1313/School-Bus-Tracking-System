@@ -16,27 +16,6 @@ The project consists of four repositories working together to provide live GPS t
 - **Simulation Mode:** Allows bus movement to be tested along a simulated road route.
 - **Admin Panel:** Provides a separate interface for bus system administration.
 
-## 🏗️ Project Architecture
-
-The project is maintained in separate repositories for easier development and maintenance.
-
-```mermaid
-flowchart TD
-    D[Driver Mobile App]
-    B[Backend API]
-    S[Socket.IO]
-    P[Parent Mobile App]
-    A[Admin Panel]
-    M[(MongoDB)]
-
-    D -->|GPS updates| B
-    B <--> M
-    B --> S
-    S -->|Live bus location| P
-    P -->|API requests| B
-    A -->|Management requests| B
-```
-
 ## 🏗️ System Architecture
 
 ```mermaid
@@ -56,24 +35,16 @@ flowchart TD
     A -->|Management API requests| B
 ```
 
-## 🏗️ System Architecture
+### Data Flow
 
-```mermaid
-flowchart TD
-    D[Driver Mobile App]
-    B[Node.js / Express Backend]
-    S[Socket.IO]
-    P[Parent Mobile App]
-    A[Admin Panel]
-    DB[(MongoDB)]
-
-    D -->|GPS and trip requests| B
-    B <--> DB
-    B --> S
-    S -->|Live location updates| P
-    P -->|API requests| B
-    A -->|Management API requests| B
+1. The Driver app sends GPS coordinates and trip updates to the backend.
+2. The backend processes requests and interacts with the database.
+3. Socket.IO distributes live location updates to connected Parent app clients.
+4. The Parent app updates the bus marker and route visualization.
+5. The Admin Panel uses backend APIs to manage system data.
 ```
+
+
 
 ### Data Flow
 
