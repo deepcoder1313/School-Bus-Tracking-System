@@ -1,0 +1,5 @@
+# Component repositories maintained separately
+/DriverApp/
+/ParentApp/
+/bus-admin-panel/
+/bus-tracking-backend/
